@@ -12,7 +12,9 @@
       "Bash(npm --version)",
       "Bash(where.exe node:*)",
       "Bash(where.exe npm:*)",
-      "Bash(where.exe npx:*)"
+      "Bash(where.exe npx:*)",
+      "WebFetch(domain:happily-ever-after.vercel.app)",
+      "WebFetch(domain:partner.feelcard.co.kr)"
     ]
   }
 }

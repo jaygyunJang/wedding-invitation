@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+import { useEffect, useState, useCallback } from 'react'
+import Intro from './components/Intro'
 import MainVisual from './components/MainVisual'
 import Greeting from './components/Greeting'
 import Calendar from './components/Calendar'
@@ -8,6 +9,12 @@ import Account from './components/Account'
 import Footer from './components/Footer'
 
 const App = () => {
+  const [showIntro, setShowIntro] = useState(true)
+
+  const handleIntroComplete = useCallback(() => {
+    setShowIntro(false)
+  }, [])
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -22,18 +29,27 @@ const App = () => {
 
     document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el))
     return () => observer.disconnect()
-  }, [])
+  }, [showIntro])
 
   return (
-    <div style={styles.app}>
-      <MainVisual />
-      <Greeting />
-      <Calendar />
-      <Gallery />
-      <Location />
-      <Account />
-      <Footer />
-    </div>
+    <>
+      {showIntro && <Intro onComplete={handleIntroComplete} />}
+      <div
+        style={{
+          ...styles.app,
+          opacity: showIntro ? 0 : 1,
+          transition: 'opacity 0.8s ease',
+        }}
+      >
+        <MainVisual />
+        <Greeting />
+        <Calendar />
+        <Gallery />
+        <Location />
+        <Account />
+        <Footer />
+      </div>
+    </>
   )
 }
 

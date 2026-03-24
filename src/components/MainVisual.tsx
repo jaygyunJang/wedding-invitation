@@ -102,12 +102,12 @@ const styles: Record<string, React.CSSProperties> = {
     textTransform: 'uppercase' as const,
   },
   photoWrapper: {
-    width: '70%',
-    maxWidth: '280px',
+    width: '85%',
+    maxWidth: '340px',
     marginBottom: '28px',
-    borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
+    borderRadius: '4px',
     overflow: 'hidden',
-    boxShadow: '0 8px 30px rgba(248, 180, 200, 0.3)',
+    boxShadow: '0 8px 30px rgba(0, 0, 0, 0.08)',
   },
   photo: {
     width: '100%',

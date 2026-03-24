@@ -68,3 +68,25 @@ a {
   height: 1px;
   background: var(--color-divider);
 }
+
+/* Intro petal falling animation */
+.intro-petal {
+  position: absolute;
+  top: -30px;
+  animation: petalFall linear forwards;
+  pointer-events: none;
+}
+
+@keyframes petalFall {
+  0% {
+    transform: translateY(0) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg) translateX(40px);
+    opacity: 0.2;
+  }
+}
