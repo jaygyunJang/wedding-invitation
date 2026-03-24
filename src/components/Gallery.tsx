@@ -1,5 +1,63 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { weddingConfig } from '../config'
+
+const Lightbox = ({
+  images,
+  selectedIdx,
+  onClose,
+  onPrev,
+  onNext,
+}: {
+  images: string[]
+  selectedIdx: number
+  onClose: () => void
+  onPrev: () => void
+  onNext: () => void
+}) => {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+      if (e.key === 'ArrowLeft') onPrev()
+      if (e.key === 'ArrowRight') onNext()
+    }
+    window.addEventListener('keydown', handleKey)
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', handleKey)
+    }
+  }, [onClose, onPrev, onNext])
+
+  return createPortal(
+    <div style={lightboxStyles.overlay} onClick={onClose}>
+      <button style={lightboxStyles.closeBtn} onClick={onClose}>
+        &times;
+      </button>
+
+      <div style={lightboxStyles.content} onClick={(e) => e.stopPropagation()}>
+        <img
+          src={images[selectedIdx]}
+          alt={`wedding photo ${selectedIdx + 1}`}
+          style={lightboxStyles.image}
+        />
+      </div>
+
+      <div style={lightboxStyles.bottomBar} onClick={(e) => e.stopPropagation()}>
+        <button style={lightboxStyles.navBtn} onClick={onPrev}>
+          &#8249;
+        </button>
+        <span style={lightboxStyles.counter}>
+          {selectedIdx + 1} / {images.length}
+        </span>
+        <button style={lightboxStyles.navBtn} onClick={onNext}>
+          &#8250;
+        </button>
+      </div>
+    </div>,
+    document.body
+  )
+}
 
 const Gallery = () => {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null)
@@ -28,35 +86,13 @@ const Gallery = () => {
       </div>
 
       {selectedIdx !== null && (
-        <div style={styles.lightbox} onClick={() => setSelectedIdx(null)}>
-          <div style={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
-            <img
-              src={images[selectedIdx]}
-              alt={`wedding photo ${selectedIdx + 1}`}
-              style={styles.lightboxImage}
-            />
-            <div style={styles.lightboxNav}>
-              <button
-                style={styles.navBtn}
-                onClick={() => setSelectedIdx(selectedIdx > 0 ? selectedIdx - 1 : images.length - 1)}
-              >
-                &#8249;
-              </button>
-              <span style={styles.counter}>
-                {selectedIdx + 1} / {images.length}
-              </span>
-              <button
-                style={styles.navBtn}
-                onClick={() => setSelectedIdx(selectedIdx < images.length - 1 ? selectedIdx + 1 : 0)}
-              >
-                &#8250;
-              </button>
-            </div>
-            <button style={styles.closeBtn} onClick={() => setSelectedIdx(null)}>
-              &times;
-            </button>
-          </div>
-        </div>
+        <Lightbox
+          images={images}
+          selectedIdx={selectedIdx}
+          onClose={() => setSelectedIdx(null)}
+          onPrev={() => setSelectedIdx(selectedIdx > 0 ? selectedIdx - 1 : images.length - 1)}
+          onNext={() => setSelectedIdx(selectedIdx < images.length - 1 ? selectedIdx + 1 : 0)}
+        />
       )}
     </section>
   )
@@ -96,59 +132,82 @@ const styles: Record<string, React.CSSProperties> = {
     objectFit: 'cover',
     transition: 'transform 0.3s ease',
   },
-  lightbox: {
+}
+
+const lightboxStyles: Record<string, React.CSSProperties> = {
+  overlay: {
     position: 'fixed',
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0,0,0,0.9)',
+    backgroundColor: 'rgba(0, 0, 0, 0.95)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    zIndex: 1000,
+    zIndex: 99999,
   },
-  lightboxContent: {
-    position: 'relative',
-    maxWidth: '90vw',
-    maxHeight: '90vh',
+  closeBtn: {
+    position: 'fixed',
+    top: '16px',
+    right: '16px',
+    width: '44px',
+    height: '44px',
+    borderRadius: '50%',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    color: '#FFFFFF',
+    fontSize: '1.5rem',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    border: 'none',
+    cursor: 'pointer',
+    zIndex: 100000,
+    backdropFilter: 'blur(4px)',
   },
-  lightboxImage: {
+  content: {
     maxWidth: '90vw',
-    maxHeight: '80vh',
+    maxHeight: '75vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  image: {
+    maxWidth: '90vw',
+    maxHeight: '75vh',
     objectFit: 'contain',
     borderRadius: '4px',
   },
-  lightboxNav: {
+  bottomBar: {
+    position: 'fixed',
+    bottom: '0',
+    left: '0',
+    right: '0',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '20px',
-    marginTop: '16px',
+    gap: '24px',
+    padding: '20px',
+    background: 'linear-gradient(transparent, rgba(0,0,0,0.6))',
   },
   navBtn: {
-    color: '#FFFFFF',
-    fontSize: '2rem',
-    padding: '8px 16px',
-    background: 'rgba(255,255,255,0.1)',
-    borderRadius: '50%',
     width: '48px',
     height: '48px',
+    borderRadius: '50%',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    color: '#FFFFFF',
+    fontSize: '1.5rem',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    border: 'none',
+    cursor: 'pointer',
+    backdropFilter: 'blur(4px)',
   },
   counter: {
-    color: '#FFFFFF',
+    color: 'rgba(255, 255, 255, 0.8)',
     fontSize: '0.9rem',
-  },
-  closeBtn: {
-    position: 'absolute',
-    top: '-40px',
-    right: '0',
-    color: '#FFFFFF',
-    fontSize: '2rem',
-    padding: '4px 12px',
+    fontFamily: "'Gowun Batang', serif",
   },
 }
 

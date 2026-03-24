@@ -15,19 +15,16 @@ const MainVisual = () => {
       <div style={styles.floralTop}>
         <svg viewBox="0 0 400 120" style={styles.floralSvg}>
           <g opacity="0.6">
-            {/* Left branch */}
             <path d="M0,80 Q60,20 120,60 Q140,70 160,50 Q180,30 200,60" fill="none" stroke="#A8D5BA" strokeWidth="1.5"/>
             <circle cx="50" cy="50" r="8" fill="#F8B4C8" opacity="0.7"/>
             <circle cx="90" cy="35" r="6" fill="#FDDDE6" opacity="0.8"/>
             <circle cx="130" cy="55" r="7" fill="#F8B4C8" opacity="0.6"/>
             <circle cx="30" cy="65" r="5" fill="#FDDDE6" opacity="0.7"/>
-            {/* Right branch */}
             <path d="M400,80 Q340,20 280,60 Q260,70 240,50 Q220,30 200,60" fill="none" stroke="#A8D5BA" strokeWidth="1.5"/>
             <circle cx="350" cy="50" r="8" fill="#F8B4C8" opacity="0.7"/>
             <circle cx="310" cy="35" r="6" fill="#FDDDE6" opacity="0.8"/>
             <circle cx="270" cy="55" r="7" fill="#F8B4C8" opacity="0.6"/>
             <circle cx="370" cy="65" r="5" fill="#FDDDE6" opacity="0.7"/>
-            {/* Center leaves */}
             <ellipse cx="200" cy="50" rx="4" ry="10" fill="#A8D5BA" opacity="0.5" transform="rotate(-20 200 50)"/>
             <ellipse cx="200" cy="50" rx="4" ry="10" fill="#A8D5BA" opacity="0.5" transform="rotate(20 200 50)"/>
           </g>
@@ -35,6 +32,14 @@ const MainVisual = () => {
       </div>
 
       <p style={styles.invite}>Wedding Invitation</p>
+
+      <div style={styles.photoWrapper}>
+        <img
+          src={weddingConfig.mainPhoto}
+          alt="대표 웨딩 사진"
+          style={styles.photo}
+        />
+      </div>
 
       <div style={styles.names}>
         <span style={styles.name}>{weddingConfig.groom.name}</span>
@@ -93,8 +98,22 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: '0.85rem',
     color: '#C9A96E',
     letterSpacing: '4px',
-    marginBottom: '32px',
+    marginBottom: '24px',
     textTransform: 'uppercase' as const,
+  },
+  photoWrapper: {
+    width: '70%',
+    maxWidth: '280px',
+    marginBottom: '28px',
+    borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
+    overflow: 'hidden',
+    boxShadow: '0 8px 30px rgba(248, 180, 200, 0.3)',
+  },
+  photo: {
+    width: '100%',
+    aspectRatio: '3/4',
+    objectFit: 'cover',
+    display: 'block',
   },
   names: {
     display: 'flex',

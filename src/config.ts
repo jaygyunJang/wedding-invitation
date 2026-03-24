@@ -17,6 +17,7 @@ export const weddingConfig = {
     motherDeceased: false,
     phone: '010-0000-0000',
   },
+  mainPhoto: 'https://picsum.photos/seed/wedding-main/600/800',
   date: '2026-10-10T12:00:00',
   greeting: {
     title: '결혼합니다',
