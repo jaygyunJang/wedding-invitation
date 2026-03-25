@@ -19,7 +19,8 @@
       "mcp__Claude_Preview__preview_start",
       "Bash(ls \"C:\\\\Users\\\\USER\\\\Documents\\\\jjg\\\\github\\\\wedding-invitation\\\\node_modules\\\\.bin\\\\vite\"*)",
       "Bash(export PATH=\"$PATH:/c/Program Files/nodejs\")",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(gh api:*)"
     ]
   }
 }

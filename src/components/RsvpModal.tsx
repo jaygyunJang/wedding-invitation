@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../firebase'
+import { weddingConfig } from '../config'
 
 interface RsvpModalProps {
   isOpen: boolean
@@ -75,6 +76,28 @@ const RsvpModal = ({ isOpen, onClose }: RsvpModalProps) => {
         <button style={s.closeBtn} onClick={onClose}>&times;</button>
 
         <h3 style={s.title}>참석 여부 전달</h3>
+
+        {/* 날짜/시간/장소 정보 */}
+        <div style={s.infoBox}>
+          <div style={s.infoRow}>
+            <span style={s.infoIcon}>📅</span>
+            <span style={s.infoText}>
+              {new Date(weddingConfig.date).toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' })}
+            </span>
+          </div>
+          <div style={s.infoRow}>
+            <span style={s.infoIcon}>🕐</span>
+            <span style={s.infoText}>
+              오후 {new Date(weddingConfig.date).getHours() - 12}시
+            </span>
+          </div>
+          <div style={s.infoRow}>
+            <span style={s.infoIcon}>📍</span>
+            <span style={s.infoText}>
+              {weddingConfig.location.name} {weddingConfig.location.hall}
+            </span>
+          </div>
+        </div>
 
         {/* 신랑측/신부측 */}
         <label style={s.label}>어느 쪽 하객이신가요?</label>
@@ -244,8 +267,32 @@ const s: Record<string, React.CSSProperties> = {
     fontWeight: 400,
     color: '#2D2D2D',
     textAlign: 'center',
-    marginBottom: '24px',
+    marginBottom: '16px',
     letterSpacing: '3px',
+  },
+  infoBox: {
+    backgroundColor: '#FAF6F1',
+    borderRadius: '10px',
+    padding: '14px 16px',
+    marginBottom: '20px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '6px',
+  },
+  infoRow: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+  },
+  infoIcon: {
+    fontSize: '0.85rem',
+    width: '20px',
+    textAlign: 'center',
+  },
+  infoText: {
+    fontSize: '0.85rem',
+    color: '#4A4A4A',
+    fontFamily: "'Gowun Batang', serif",
   },
   label: {
     display: 'block',
