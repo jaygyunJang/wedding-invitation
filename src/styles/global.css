@@ -21,11 +21,22 @@ body {
   word-break: keep-all;
 }
 
-/* 다크모드 강제 무시 */
+/* 다크모드 강제 무시 - 모바일 브라우저 포함 */
 @media (prefers-color-scheme: dark) {
+  html, body, #root, * {
+    color-scheme: light only !important;
+  }
+  html {
+    -webkit-text-fill-color: initial !important;
+    forced-color-adjust: none !important;
+    -ms-high-contrast-adjust: none !important;
+  }
   html, body {
-    background-color: var(--color-bg) !important;
-    color: var(--color-text) !important;
+    background-color: #FAF6F1 !important;
+    color: #4A4A4A !important;
+  }
+  img, svg, video {
+    filter: none !important;
   }
 }
 
