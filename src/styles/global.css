@@ -49,16 +49,13 @@ a {
   transform: translateY(0);
 }
 
-/* Floral divider */
+/* Autumn leaf divider */
 .section-divider {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   padding: 8px 0;
-  color: var(--color-primary);
-  font-size: 1.2rem;
-  letter-spacing: 8px;
 }
 
 .section-divider::before,
@@ -69,24 +66,28 @@ a {
   background: var(--color-divider);
 }
 
-/* Intro petal falling animation */
-.intro-petal {
+/* Autumn leaf falling animation */
+.intro-leaf {
   position: absolute;
   top: -30px;
-  animation: petalFall linear forwards;
+  animation: leafFall linear forwards;
   pointer-events: none;
 }
 
-@keyframes petalFall {
+@keyframes leafFall {
   0% {
     transform: translateY(0) rotate(0deg) translateX(0);
     opacity: 0;
   }
   10% {
-    opacity: 1;
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(50vh) rotate(180deg) translateX(30px);
+    opacity: 0.6;
   }
   100% {
-    transform: translateY(110vh) rotate(360deg) translateX(40px);
-    opacity: 0.2;
+    transform: translateY(110vh) rotate(360deg) translateX(-20px);
+    opacity: 0;
   }
 }

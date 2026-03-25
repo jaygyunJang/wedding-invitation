@@ -1,16 +1,16 @@
 :root {
-  --color-primary: #F8B4C8;
-  --color-primary-light: #FDDDE6;
-  --color-primary-dark: #E8829E;
-  --color-secondary: #A8D5BA;
-  --color-secondary-light: #D4EDDA;
+  --color-primary: #C4724E;
+  --color-primary-light: #E8C4A8;
+  --color-primary-dark: #A0563A;
+  --color-secondary: #8B7355;
+  --color-secondary-light: #D4C4A8;
   --color-accent: #C9A96E;
-  --color-bg: #FFF8F0;
+  --color-bg: #FAF6F1;
   --color-bg-section: #FFFFFF;
   --color-text: #4A4A4A;
   --color-text-light: #8A8A8A;
   --color-text-dark: #2D2D2D;
-  --color-divider: #F0E6D8;
+  --color-divider: #E8DDD0;
 
   --font-serif: 'Noto Serif KR', 'Batang', serif;
   --font-display: 'Gowun Batang', 'Batang', serif;

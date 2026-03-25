@@ -12,7 +12,6 @@ const Account = () => {
     navigator.clipboard.writeText(text).then(() => {
       alert('계좌번호가 복사되었습니다.')
     }).catch(() => {
-      // Fallback
       const textarea = document.createElement('textarea')
       textarea.value = text
       document.body.appendChild(textarea)
@@ -45,7 +44,7 @@ const Account = () => {
 
   return (
     <section style={styles.section} className="fade-in">
-      <div className="section-divider">&#10047;</div>
+      <div className="section-divider"><svg width="24" height="24" viewBox="0 0 32 32" fill="none"><g opacity="0.7"><ellipse cx="16" cy="10" rx="3" ry="6" fill="#D4799C" transform="rotate(0 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#E8A0B8" transform="rotate(45 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#D4799C" transform="rotate(90 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#E8A0B8" transform="rotate(135 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#D4799C" transform="rotate(180 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#E8A0B8" transform="rotate(225 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#D4799C" transform="rotate(270 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#E8A0B8" transform="rotate(315 16 16)"/><circle cx="16" cy="16" r="2.5" fill="#C9A96E"/></g></svg></div>
       <h2 style={styles.title}>마음 전하실 곳</h2>
       <p style={styles.subtitle}>축하의 마음을 담아 축의금을 전달해 보세요.</p>
 
@@ -108,16 +107,16 @@ const styles: Record<string, React.CSSProperties> = {
     padding: '14px 20px',
     fontSize: '0.9rem',
     color: '#4A4A4A',
-    backgroundColor: '#FFF8F0',
-    border: '1px solid #F0E6D8',
+    backgroundColor: '#FAF6F1',
+    border: '1px solid #E8DDD0',
     borderRadius: '8px',
     cursor: 'pointer',
     transition: 'all 0.2s ease',
     fontFamily: "'Noto Serif KR', serif",
   },
   toggleBtnActive: {
-    backgroundColor: '#FDDDE6',
-    borderColor: '#F8B4C8',
+    backgroundColor: '#E8C4A8',
+    borderColor: '#C4724E',
   },
   accountList: {
     display: 'flex',
@@ -156,7 +155,7 @@ const styles: Record<string, React.CSSProperties> = {
     padding: '6px 14px',
     fontSize: '0.8rem',
     color: '#FFFFFF',
-    backgroundColor: '#F8B4C8',
+    backgroundColor: '#C4724E',
     border: 'none',
     borderRadius: '16px',
     cursor: 'pointer',

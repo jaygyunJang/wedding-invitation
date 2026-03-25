@@ -65,7 +65,7 @@ const Gallery = () => {
 
   return (
     <section style={styles.section} className="fade-in">
-      <div className="section-divider">&#10047;</div>
+      <div className="section-divider"><svg width="24" height="24" viewBox="0 0 32 32" fill="none"><g opacity="0.7"><ellipse cx="16" cy="10" rx="3" ry="6" fill="#D4799C" transform="rotate(0 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#E8A0B8" transform="rotate(45 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#D4799C" transform="rotate(90 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#E8A0B8" transform="rotate(135 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#D4799C" transform="rotate(180 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#E8A0B8" transform="rotate(225 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#D4799C" transform="rotate(270 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#E8A0B8" transform="rotate(315 16 16)"/><circle cx="16" cy="16" r="2.5" fill="#C9A96E"/></g></svg></div>
       <h2 style={styles.title}>Gallery</h2>
 
       <div style={styles.grid}>
@@ -141,7 +141,7 @@ const lightboxStyles: Record<string, React.CSSProperties> = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(255, 248, 240, 0.95)',
+    backgroundColor: 'rgba(250, 246, 241, 0.95)',
     backdropFilter: 'blur(8px)',
     display: 'flex',
     alignItems: 'center',
@@ -155,7 +155,7 @@ const lightboxStyles: Record<string, React.CSSProperties> = {
     width: '48px',
     height: '48px',
     borderRadius: '50%',
-    backgroundColor: '#F8B4C8',
+    backgroundColor: '#C4724E',
     color: '#FFFFFF',
     fontSize: '1.6rem',
     fontWeight: 300,
@@ -165,7 +165,7 @@ const lightboxStyles: Record<string, React.CSSProperties> = {
     border: '2px solid rgba(255, 255, 255, 0.6)',
     cursor: 'pointer',
     zIndex: 100000,
-    boxShadow: '0 2px 12px rgba(248, 180, 200, 0.4)',
+    boxShadow: '0 2px 12px rgba(196, 114, 78, 0.4)',
   },
   content: {
     maxWidth: '90vw',
@@ -191,7 +191,7 @@ const lightboxStyles: Record<string, React.CSSProperties> = {
     justifyContent: 'center',
     gap: '24px',
     padding: '20px',
-    background: 'linear-gradient(transparent, rgba(255, 248, 240, 0.8))',
+    background: 'linear-gradient(transparent, rgba(250, 246, 241, 0.8))',
   },
   navBtn: {
     width: '48px',

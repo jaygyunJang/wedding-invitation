@@ -5,27 +5,12 @@ const Footer = () => {
 
   return (
     <footer style={styles.footer}>
-      <div style={styles.contact}>
-        <a href={`tel:${groom.phone}`} style={styles.contactItem}>
-          <span style={styles.contactLabel}>신랑에게 연락하기</span>
-          <span style={styles.contactName}>{groom.name}</span>
-        </a>
-        <div style={styles.divider} />
-        <a href={`tel:${bride.phone}`} style={styles.contactItem}>
-          <span style={styles.contactLabel}>신부에게 연락하기</span>
-          <span style={styles.contactName}>{bride.name}</span>
-        </a>
-      </div>
-
       <div style={styles.copyright}>
-        <svg viewBox="0 0 200 40" style={styles.floralSvg}>
-          <g opacity="0.4">
-            <path d="M20,20 Q60,5 100,20 Q140,35 180,20" fill="none" stroke="#A8D5BA" strokeWidth="1"/>
-            <circle cx="60" cy="14" r="4" fill="#F8B4C8" opacity="0.6"/>
-            <circle cx="140" cy="26" r="4" fill="#FDDDE6" opacity="0.7"/>
-            <circle cx="100" cy="20" r="3" fill="#F8B4C8" opacity="0.5"/>
-          </g>
-        </svg>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to right, transparent, rgba(201,169,110,0.3))' }} />
+          <svg width="16" height="16" viewBox="0 0 32 32" fill="none"><g opacity="0.4"><ellipse cx="16" cy="10" rx="3" ry="6" fill="#D4799C" transform="rotate(0 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#E8A0B8" transform="rotate(45 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#D4799C" transform="rotate(90 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#E8A0B8" transform="rotate(135 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#D4799C" transform="rotate(180 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#E8A0B8" transform="rotate(225 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#D4799C" transform="rotate(270 16 16)"/><ellipse cx="16" cy="10" rx="3" ry="6" fill="#E8A0B8" transform="rotate(315 16 16)"/><circle cx="16" cy="16" r="2.5" fill="#C9A96E"/></g></svg>
+          <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to left, transparent, rgba(201,169,110,0.3))' }} />
+        </div>
         <p style={styles.copyrightText}>
           {groom.name} & {bride.name}
         </p>
@@ -40,35 +25,7 @@ const styles: Record<string, React.CSSProperties> = {
     textAlign: 'center',
     maxWidth: '480px',
     margin: '0 auto',
-    backgroundColor: '#FFF8F0',
-  },
-  contact: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: '24px',
-    marginBottom: '32px',
-  },
-  contactItem: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: '4px',
-    textDecoration: 'none',
-  },
-  contactLabel: {
-    fontSize: '0.75rem',
-    color: '#8A8A8A',
-  },
-  contactName: {
-    fontSize: '0.9rem',
-    color: '#4A4A4A',
-    fontWeight: 700,
-  },
-  divider: {
-    width: '1px',
-    height: '32px',
-    backgroundColor: '#E0D5C5',
+    backgroundColor: '#FAF6F1',
   },
   copyright: {
     display: 'flex',
@@ -76,7 +33,7 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: 'center',
     gap: '8px',
   },
-  floralSvg: {
+  decoSvg: {
     width: '120px',
     height: 'auto',
   },

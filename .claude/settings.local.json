@@ -14,7 +14,12 @@
       "Bash(where.exe npm:*)",
       "Bash(where.exe npx:*)",
       "WebFetch(domain:happily-ever-after.vercel.app)",
-      "WebFetch(domain:partner.feelcard.co.kr)"
+      "WebFetch(domain:partner.feelcard.co.kr)",
+      "Bash(npm run:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(ls \"C:\\\\Users\\\\USER\\\\Documents\\\\jjg\\\\github\\\\wedding-invitation\\\\node_modules\\\\.bin\\\\vite\"*)",
+      "Bash(export PATH=\"$PATH:/c/Program Files/nodejs\")",
+      "Bash(npm install:*)"
     ]
   }
 }

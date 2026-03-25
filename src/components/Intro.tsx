@@ -9,12 +9,8 @@ const Intro = ({ onComplete }: IntroProps) => {
   const [phase, setPhase] = useState<'names' | 'message' | 'fadeOut'>('names')
 
   useEffect(() => {
-    // Phase 1: 이름 ♥ 이름 표시 (0~2초)
-    // Phase 2: "결혼합니다" 문구 등장 (2초~)
     const msgTimer = setTimeout(() => setPhase('message'), 2000)
-    // Phase 3: 전체 페이드아웃 (4초~)
     const fadeTimer = setTimeout(() => setPhase('fadeOut'), 4000)
-    // Phase 4: 완전히 사라진 후 메인 화면 (5초)
     const completeTimer = setTimeout(() => onComplete(), 5000)
 
     return () => {
@@ -57,7 +53,20 @@ const Intro = ({ onComplete }: IntroProps) => {
       >
         <div style={introStyles.ornamentLine}>
           <span style={introStyles.ornamentDash} />
-          <span style={introStyles.ornamentIcon}>✻</span>
+          {/* Cosmos flower ornament */}
+          <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+            <g opacity="0.7">
+              <ellipse cx="16" cy="10" rx="3" ry="6" fill="#D4799C" transform="rotate(0 16 16)"/>
+              <ellipse cx="16" cy="10" rx="3" ry="6" fill="#E8A0B8" transform="rotate(45 16 16)"/>
+              <ellipse cx="16" cy="10" rx="3" ry="6" fill="#D4799C" transform="rotate(90 16 16)"/>
+              <ellipse cx="16" cy="10" rx="3" ry="6" fill="#E8A0B8" transform="rotate(135 16 16)"/>
+              <ellipse cx="16" cy="10" rx="3" ry="6" fill="#D4799C" transform="rotate(180 16 16)"/>
+              <ellipse cx="16" cy="10" rx="3" ry="6" fill="#E8A0B8" transform="rotate(225 16 16)"/>
+              <ellipse cx="16" cy="10" rx="3" ry="6" fill="#D4799C" transform="rotate(270 16 16)"/>
+              <ellipse cx="16" cy="10" rx="3" ry="6" fill="#E8A0B8" transform="rotate(315 16 16)"/>
+              <circle cx="16" cy="16" r="2.5" fill="#C9A96E"/>
+            </g>
+          </svg>
           <span style={introStyles.ornamentDash} />
         </div>
         <p style={introStyles.messageText}>결혼합니다</p>
@@ -79,7 +88,7 @@ const introStyles: Record<string, React.CSSProperties> = {
     alignItems: 'center',
     justifyContent: 'center',
     gap: '28px',
-    background: 'linear-gradient(180deg, #FFF8F0 0%, #FFFFFF 40%, #FDDDE6 100%)',
+    background: 'linear-gradient(180deg, #FAF6F1 0%, #FFFFFF 40%, #F2E6DC 100%)',
     overflow: 'hidden',
   },
   nameArea: {
@@ -96,7 +105,7 @@ const introStyles: Record<string, React.CSSProperties> = {
     letterSpacing: '4px',
   },
   heart: {
-    color: '#F8B4C8',
+    color: '#D4799C',
     fontSize: '1.1rem',
   },
   messageArea: {
@@ -114,10 +123,6 @@ const introStyles: Record<string, React.CSSProperties> = {
     width: '50px',
     height: '1px',
     background: 'linear-gradient(to right, transparent, #C9A96E, transparent)',
-  },
-  ornamentIcon: {
-    color: '#F8B4C8',
-    fontSize: '0.9rem',
   },
   messageText: {
     fontFamily: "'Gowun Batang', serif",
