@@ -5,7 +5,7 @@ import Greeting from './components/Greeting'
 import Calendar from './components/Calendar'
 import Gallery from './components/Gallery'
 import Location from './components/Location'
-import Rsvp from './components/Rsvp'
+// Rsvp section removed - using floating button instead
 import Guestbook from './components/Guestbook'
 import Account from './components/Account'
 import Footer from './components/Footer'
@@ -78,7 +78,6 @@ const App = () => {
         <Calendar />
         <Gallery />
         <Location />
-        <Rsvp />
         <Guestbook />
         <Account />
         <Footer />
