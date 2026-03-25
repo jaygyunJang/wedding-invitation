@@ -56,12 +56,13 @@ const styles: Record<string, React.CSSProperties> = {
   },
   photoArea: {
     width: '100%',
+    height: '100vh',
     position: 'relative',
     overflow: 'hidden',
   },
   photo: {
     width: '100%',
-    aspectRatio: '3/4',
+    height: '100%',
     objectFit: 'cover',
     display: 'block',
   },

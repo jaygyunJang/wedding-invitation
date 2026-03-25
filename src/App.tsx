@@ -29,10 +29,10 @@ const App = () => {
     // 인트로 끝난 후 0.8초 뒤 RSVP 팝업 (한 번만)
     const alreadyAnswered = localStorage.getItem('rsvp_shown')
     if (!alreadyAnswered) {
-      setTimeout(() => setShowRsvpPopup(true), 800)
+      setTimeout(() => setShowRsvpPopup(true), 10)
     }
     // 플로팅 버튼은 인트로 후 항상 표시
-    setTimeout(() => setShowFloatingBtn(true), 1000)
+    setTimeout(() => setShowFloatingBtn(true), 100)
   }, [])
 
   const handleRsvpPopupClose = useCallback(() => {

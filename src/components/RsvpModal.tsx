@@ -79,24 +79,8 @@ const RsvpModal = ({ isOpen, onClose }: RsvpModalProps) => {
 
         {/* 날짜/시간/장소 정보 */}
         <div style={s.infoBox}>
-          <div style={s.infoRow}>
-            <span style={s.infoIcon}>📅</span>
-            <span style={s.infoText}>
-              {new Date(weddingConfig.date).toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' })}
-            </span>
-          </div>
-          <div style={s.infoRow}>
-            <span style={s.infoIcon}>🕐</span>
-            <span style={s.infoText}>
-              오후 {new Date(weddingConfig.date).getHours() - 12}시
-            </span>
-          </div>
-          <div style={s.infoRow}>
-            <span style={s.infoIcon}>📍</span>
-            <span style={s.infoText}>
-              {weddingConfig.location.name} {weddingConfig.location.hall}
-            </span>
-          </div>
+          <p style={s.infoLine}>2026.11.28 토요일 오후 2시</p>
+          <p style={s.infoLine}>{weddingConfig.location.name}</p>
         </div>
 
         {/* 신랑측/신부측 */}
@@ -271,28 +255,18 @@ const s: Record<string, React.CSSProperties> = {
     letterSpacing: '3px',
   },
   infoBox: {
-    backgroundColor: '#FAF6F1',
-    borderRadius: '10px',
-    padding: '14px 16px',
-    marginBottom: '20px',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '6px',
-  },
-  infoRow: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-  },
-  infoIcon: {
-    fontSize: '0.85rem',
-    width: '20px',
     textAlign: 'center',
+    marginBottom: '20px',
+    padding: '12px 0',
+    borderTop: '1px solid #F0E6D8',
+    borderBottom: '1px solid #F0E6D8',
   },
-  infoText: {
+  infoLine: {
     fontSize: '0.85rem',
     color: '#4A4A4A',
     fontFamily: "'Gowun Batang', serif",
+    margin: '4px 0',
+    letterSpacing: '1px',
   },
   label: {
     display: 'block',
