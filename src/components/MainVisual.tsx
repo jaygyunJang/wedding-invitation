@@ -57,7 +57,7 @@ const styles: Record<string, React.CSSProperties> = {
   },
   photoArea: {
     width: '100%',
-    aspectRatio: '3 / 4',
+    height: '90vh',
     position: 'relative',
     overflow: 'hidden',
     borderRadius: '0px',
@@ -85,12 +85,13 @@ const styles: Record<string, React.CSSProperties> = {
   },
   scriptText: {
     fontFamily: "'Caveat', cursive",
-    fontSize: '2.2rem',
+    fontSize: '1.8rem',
     fontWeight: 400,
-    color: 'rgba(228, 125, 56, 0.99)',
+    color: '#F09060',
+    //'rgba(250, 247, 246, 0.7)',
     margin: 0,
     letterSpacing: '2px',
-    textShadow: '0 1px 6px rgba(228, 142, 85, 0.92)',
+    textShadow: '0 1px 6px rgba(0,0,0,0.3)',
   },
   bottomArea: {
     textAlign: 'center',
